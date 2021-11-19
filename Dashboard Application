@@ -69,9 +69,12 @@ app.layout = html.Div(children=[
                                 # TASK1: Add title to the dashboard
                                 # Enter your code below. Make sure you have correct formatting.
     				 html.H1('US Domestic Airline Flights Performance',
-                                         style = {'textAlign':'center','color':'#503D36','font-size':24}),
+                                         style = {'textAlign':'center',
+                                                  'color': '#503D36',
+                                                  'backgroundColor': "white",
+                                                  'font-size':24}),
 
-                                # REVIEW2: Dropdown creation
+                                # Dropdown creation
                                 # Create an outer division 
                                 html.Div([
                                     # Add an division
@@ -79,22 +82,24 @@ app.layout = html.Div(children=[
                                         # Create an division for adding dropdown helper text for report type
                                         html.Div(
                                             [
-                                            html.H2('Report Type:', style={'margin-right': '2em'}),
+                                            html.H2('Report Type:', style={'margin-right': '2em','backgroundColor': "white"}),
                                             ]
                                         ),
 
-                                        # TASK2: Add a dropdown
+                                        # Add a dropdown
                                         # Enter your code below. Make sure you have correct formatting.
                                         dcc.Dropdown(id = 'input-type',
                                                      options = [
                                                          {'label':'Yearly Airline Performance Report','value':'OPT1'},
                                                          {'label':'Yearly Airline Delay Report','value':'OPT2'}
                                                          ],
+                                                     value = 'OPT1',
+                                                     multi = False,
                                                      placeholder = 'Select a report type',
                                                      style = {'width':'80%','padding':'3px', 'font-size':'20px','text-align-last':'center'}),
                                                      
                                     # Place them next to each other using the division style
-                                    ], style={'display':'flex'}),
+                                    ], style={'display':'flex', backgroundColor': "white"}),
                                     
                                    # Add next division 
                                    html.Div([
@@ -107,14 +112,16 @@ app.layout = html.Div(children=[
                                         dcc.Dropdown(id='input-year', 
                                                      # Update dropdown values using list comphrehension
                                                      options=[{'label': i, 'value': i} for i in year_list],
+                                                     value = 2020,
+                                                     multi = False,
                                                      placeholder="Select a year",
                                                      style={'width':'80%', 'padding':'3px', 'font-size': '20px', 'text-align-last' : 'center'}),
                                             # Place them next to each other using the division style
-                                            ], style={'display': 'flex'}),  
+                                            ], style={'display': 'flex', backgroundColor': "white"}),  
                                           ]),
                                 
                                 # Add Computed graphs
-                                # REVIEW3: Observe how we add an empty division and providing an id that will be updated during callback
+                                # Observe how we add an empty division and providing an id that will be updated during callback
                                 html.Div([ ], id='plot1'),
                                 html.Div([
                                         html.Div([ ], id='plot2'),
